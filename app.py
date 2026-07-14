@@ -16,6 +16,20 @@ tfidf = joblib.load('tfidf_vectorizer.pkl')
 
 st.set_page_config(page_title="Phishing Email Detector", page_icon="🛡️", layout="centered")
 
+# Hide Streamlit's default menu, footer, "Manage app" badge, and disable textarea resize handle
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    .stAppDeployButton {display: none;}
+    div[data-testid="stStatusWidget"] {visibility: hidden;}
+    div[data-testid="stDecoration"] {display: none;}
+    a[href*="streamlit.io"] {display: none;}
+    textarea {resize: none !important;}
+    </style>
+""", unsafe_allow_html=True)
+
 st.title("🛡️ AI-Driven Phishing Email Detector")
 st.write("Paste an email below to check if it's **Safe** or **Phishing**, using NLP + Machine Learning.")
 
